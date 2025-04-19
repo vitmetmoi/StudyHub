@@ -34,7 +34,7 @@ export default function Section1() {
     }, [counterState])
 
     const handleTriggerCalcNumberEffect = () => {
-
+        console.log('trieer')
         handleCalcNumberEffect('comunityMembers', 1, 1);
         if (counterState.comunityMembers === 1) {
             handleCalcNumberEffect('studySessions', 1, 19);
