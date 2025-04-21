@@ -7,7 +7,7 @@ import HomeBanner from './ui/home/HomeBanner';
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react';
 import '@/app/ui/home/Home.scss';
-import _ from 'lodash'
+import _ from 'lodash';
 import LazyLoad from 'react-lazyload';
 import Section1 from './ui/home/section/Section1';
 import Section2 from './ui/home/section/Section2';
@@ -27,7 +27,7 @@ export default function Page() {
       </div>
 
       <div className='home-section-container section2'>
-        <LazyLoad offset={-200} >
+        <LazyLoad offset={-400} >
           <Section2></Section2>
         </LazyLoad>
       </div>

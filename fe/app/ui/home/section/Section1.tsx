@@ -2,7 +2,10 @@
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import './Section1.scss'
-import _ from "lodash"
+import _ from "lodash";
+import { styled } from "@mui/material/styles";
+
+
 export default function Section1() {
 
     interface defaultCounterState {
@@ -65,6 +68,23 @@ export default function Section1() {
 
     }
 
+    const Wrapper = styled('div')(({ theme }) => ({
+        display: "flex",
+
+        [theme.breakpoints.down("sm")]: {
+            gap: '65px',
+            flexDirection: "column",
+            marginTop: '10%'
+        },
+        [theme.breakpoints.up("sm")]: {
+            alignItems: "center",
+            justifyContent: "center",
+            gap: '65px',
+            marginTop: '2%'
+        }
+
+    }))
+
 
 
     return (
@@ -73,7 +93,7 @@ export default function Section1() {
                 <h5 className='header-top'>Our <span>student community</span> is <span>more than one million</span> strong</h5>
                 <h5>(and this is just the beginning)</h5>
 
-                <div className='couter-group'>
+                <Wrapper>
 
                     <div className='item'>
                         <span className='couter'>+{counterState.comunityMembers}M</span>
@@ -101,7 +121,7 @@ export default function Section1() {
                     </div>
 
 
-                </div>
+                </Wrapper>
             </div>
         </>
     )
