@@ -22,7 +22,7 @@ export default function Section1() {
         positiveReviews: 0
     })
 
-    console.log('coutnerState', counterState)
+    // console.log('coutnerState', counterState)
 
 
     useEffect(() => {

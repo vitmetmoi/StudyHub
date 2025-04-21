@@ -24,6 +24,7 @@
     "postgres": "^3.4.5",
     "react": "latest",
     "react-dom": "latest",
+    "react-lazyload": "^3.2.1",
     "sass": "^1.86.3",
     "tailwindcss": "3.4.17",
     "typescript": "5.7.3",

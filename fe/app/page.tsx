@@ -5,34 +5,34 @@ import Image from 'next/image';
 import Head from 'next/head';
 import HomeBanner from './ui/home/HomeBanner';
 import dynamic from 'next/dynamic'
-import { useEffect } from 'react';
-
-
+import { useEffect, useState } from 'react';
+import '@/app/ui/home/Home.scss';
+import _ from 'lodash'
+import LazyLoad from 'react-lazyload';
+import Section1 from './ui/home/section/Section1';
+import Section2 from './ui/home/section/Section2';
 
 export default function Page() {
-
-  // useEffect(() => {
-  //   //add eventlistener to window
-  //   window.addEventListener("scroll", onScroll, { passive: true });
-  //   // remove event on unmount to prevent a memory leak with the cleanup
-  //   return () => {
-  //     window.removeEventListener("scroll", onScroll, { passive: true });
-  //   }
-  // }, []);
-
-  // const onScroll = useCallback(event => {
-  //   const { pageYOffset, scrollY } = window;
-  //   console.log("yOffset", pageYOffset, "scrollY", scrollY);
-  //   setScrollY(window.pageYOffset);
-  // }, []);
-
-  const Section1 = dynamic(() => import('./ui/home/section/Section1'), { ssr: false })
 
 
   return (
     <>
       <HomeBanner></HomeBanner>
-      <Section1></Section1>
+
+
+      <div className='home-section-container' >
+        <LazyLoad offset={-200} >
+          <Section1></Section1>
+        </LazyLoad>
+      </div>
+
+      <div className='home-section-container section2'>
+        <LazyLoad offset={-200} >
+          <Section2></Section2>
+        </LazyLoad>
+      </div>
+
+
     </>
   );
 }
