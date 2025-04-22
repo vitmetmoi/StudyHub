@@ -11,6 +11,8 @@ import _ from 'lodash';
 import LazyLoad from 'react-lazyload';
 import Section1 from './ui/home/section/Section1';
 import Section2 from './ui/home/section/Section2';
+import Section3 from './ui/home/section/Section3';
+
 
 export default function Page() {
 
@@ -31,6 +33,8 @@ export default function Page() {
           <Section2></Section2>
         </LazyLoad>
       </div>
+
+      <Section3></Section3>
 
 
     </>
