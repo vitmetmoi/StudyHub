@@ -46,6 +46,8 @@ export default function Section3() {
                 <Wrapper>
                     <Item>
                         <div className='content-left'>
+
+
                             <img src='/section/sample-img.png'></img>
 
                         </div>
