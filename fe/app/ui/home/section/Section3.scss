@@ -4,6 +4,7 @@
     background-image: linear-gradient(#f4eef5, #fff);
     flex-direction  : column;
     padding         : 5% 0;
+    position        : relative;
 
     h6 {
         font-size : 18px;
@@ -24,16 +25,27 @@
 
     .content-left {
         width  : 100%;
-        height : fit-content;
+        height : 242px;
         display: flex;
+
+        img {
+            position          : absolute;
+            animation         : float-img;
+            animation-duration: 3s;
+
+        }
 
     }
 
     .content-right {
-        width         : 100%;
-        height        : fit-content;
-        display       : flex;
-        flex-direction: column;
+        width                : 100%;
+        height               : fit-content;
+        display              : flex;
+        flex-direction       : column;
+        // transition        : 1s all;
+        opacity              : 1;
+        animation            : animated-opacity;
+        animation-duration   : 3s;
 
         .header {
             font-weight: 800;
@@ -79,5 +91,16 @@
                 }
             }
         }
+    }
+}
+
+
+@keyframes float-img {
+    0% {
+        margin-top: 200px;
+    }
+
+    100% {
+        margin-top: 0;
     }
 }

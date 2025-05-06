@@ -12,7 +12,7 @@ import LazyLoad from 'react-lazyload';
 import Section1 from './ui/home/section/Section1';
 import Section2 from './ui/home/section/Section2';
 import Section3 from './ui/home/section/Section3';
-
+import Section4 from './ui/home/section/Section4';
 
 export default function Page() {
 
@@ -34,7 +34,12 @@ export default function Page() {
         </LazyLoad>
       </div>
 
-      <Section3></Section3>
+      <div className='home-section-container section3'>
+        <Section3></Section3>
+      </div>
+
+
+      <Section4></Section4>
 
 
     </>
