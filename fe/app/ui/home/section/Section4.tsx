@@ -2,21 +2,8 @@
 
 import './Section4.scss';
 import _ from "lodash";
-import { styled } from "@mui/material/styles";
-import { useEffect, useState } from 'react'
-import FloatingAvatar from '@/app/lib/FloatingAvatar';
 import ScrollBannner from '@/app/lib/ScrollBanner';
 export default function Section4() {
-
-    const items: string[] = [
-        'community',
-        'tutoring',
-        'social events',
-        'motivation',
-        'leaderboard',
-        'progress',
-        'together'
-    ]
 
     return (
         <>
@@ -33,6 +20,7 @@ export default function Section4() {
                     <div className='card'>
                         <div className='card-image'>
                             <img className='img' src="/section/Small1.png"></img>
+                            <div className='icon-box'><img className='icon' src='/icon/icon1.svg'></img></div>
                         </div>
                         <div className='title'>
                             The "good" kind of <br></br>
@@ -44,6 +32,7 @@ export default function Section4() {
                     <div className='card'>
                         <div className='card-image'>
                             <img className='img' src="/section/Small2.png"></img>
+                            <div className='icon-box icon2'><img className='icon' src='/icon/icon2.svg'></img></div>
                         </div>
                         <div className='title'>24/7 support,<br></br>
                             all year round  </div>
@@ -54,6 +43,12 @@ export default function Section4() {
                     <div className='card'>
                         <div className='card-image'>
                             <img className='img' src="/section/Small3.png"></img>
+                            <div className='icon-box icon3'>
+                                <img className='icon' src='/icon/icon3.svg'></img>
+                                <div className='icon-box icon4'>
+                                    <img className='icon' src='/icon/icon4.svg'></img>
+                                </div>
+                            </div>
                         </div>
                         <div className='title'>Studying,<br></br>
                             reloaded </div>

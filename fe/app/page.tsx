@@ -13,7 +13,7 @@ import Section1 from './ui/home/section/Section1';
 import Section2 from './ui/home/section/Section2';
 import Section3 from './ui/home/section/Section3';
 import Section4 from './ui/home/section/Section4';
-
+import Section5 from './ui/home/section/Section5';
 export default function Page() {
 
 
@@ -35,13 +35,18 @@ export default function Page() {
       </div>
 
       <div className='home-section-container section3'>
-        <Section3></Section3>
+        <LazyLoad offset={-300} >
+          <Section3></Section3>
+        </LazyLoad>
       </div>
 
+      <div className='home-section-container section4'>
+        <LazyLoad offset={-300} >
+          <Section4></Section4>
+        </LazyLoad>
+      </div>
 
-      <Section4></Section4>
-
-
+      <Section5></Section5>
     </>
   );
 }
