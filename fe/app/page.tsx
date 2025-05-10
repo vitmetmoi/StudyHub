@@ -12,6 +12,7 @@ import Section4 from './ui/home/section/Section4';
 import Section5 from './ui/home/section/Section5';
 import ScrollBannner from '@/app/lib/ScrollBanner';
 import Section6 from './ui/home/section/Section6';
+import Section7 from './ui/home/section/Section7';
 export default function Page() {
 
 
@@ -52,8 +53,14 @@ export default function Page() {
         </LazyLoad>
       </div>
 
+      <div className='home-section-container section4'>
+        <LazyLoad offset={-300} >
+          <Section6 />
+        </LazyLoad>
+      </div>
 
-      <Section6 />
+      <Section7 />
+
     </>
   );
 }
