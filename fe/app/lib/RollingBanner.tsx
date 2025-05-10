@@ -2,8 +2,14 @@
 
 import _ from "lodash"
 import { useEffect, useState } from "react"
-import './RollingBanner.scss'
-export default function RollingBanner() {
+import './RollingBanner.scss';
+
+type propsType = {
+    arrPathImage: string[]
+}
+
+export default function RollingBanner(props: propsType) {
+    const { arrPathImage } = props;
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
@@ -20,8 +26,8 @@ export default function RollingBanner() {
 
     return (
         <>
-            <div className="section7-container">
-                section7
+            <div className="rolling-banner-container">
+
             </div>
         </>
     )

@@ -1,27 +1,21 @@
-
-
 import _ from "lodash"
 import { useEffect, useState } from "react"
-import './Section7.scss'
-export default function Section7() {
+import './Section7.scss';
+import RollingBanner from "@/app/lib/RollingBanner";
 
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
+type propsType = {
+    arrPathImage: string[]
+}
 
-    console.log('scroll', scrollPosition)
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-    }, [])
-
+export default function Section7(props: propsType) {
+    const { arrPathImage } = props;
 
     return (
         <>
             <div className="section7-container">
-                section7
+                <RollingBanner
+
+                ></RollingBanner>
             </div>
         </>
     )
