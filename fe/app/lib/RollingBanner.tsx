@@ -1,19 +1,34 @@
 
 
-import _ from "lodash"
-import { useEffect, useState } from "react"
+import _, { curry } from "lodash"
+import { useEffect, useRef, useState } from "react"
 import './RollingBanner.scss';
 
 type propsType = {
-    arrPathImage: string[]
+    arrPathImage: string[],
+    width: number,
+    height: number
 }
 
 export default function RollingBanner(props: propsType) {
-    const { arrPathImage } = props;
+    const { arrPathImage, width, height } = props;
 
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState<number>(0);
+    const rollingDiv = useRef<HTMLDivElement>(null);
+
+
     const handleScroll = () => {
+
+        if (!rollingDiv.current) return;
         const position = window.pageYOffset;
+        let curPositionDiv = (rollingDiv.current.style.left).match(/\d+/);
+
+        if (scrollPosition >= 0 && curPositionDiv) {
+            console.log('rolling div', curPositionDiv[0]);
+            console.log(rollingDiv.current.style.left + (position - scrollPosition))
+            rollingDiv.current.style.left = `${+curPositionDiv[0] + (position - scrollPosition)}px`;
+        }
+
         setScrollPosition(position);
     };
 
@@ -26,8 +41,14 @@ export default function RollingBanner(props: propsType) {
 
     return (
         <>
-            <div className="rolling-banner-container">
-
+            <div ref={rollingDiv} className="rolling-banner-container">
+                {props.arrPathImage && props.arrPathImage.map((item, index) => {
+                    return (
+                        <>
+                            <img src={item} width={props.width} height={props.height}></img>
+                        </>
+                    )
+                })}
             </div>
         </>
     )
