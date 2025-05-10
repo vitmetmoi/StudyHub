@@ -24,7 +24,7 @@ export default function () {
                         </button>
                     </div>
 
-                    <div className="section">
+                    <div className="section pos-3">
                         <button className='main-btn sub' style={{ backgroundImage: 'linear-gradient(139deg, #9656a1, #ff3939)' }}>
                             <div className='tag-box'>Live-in app</div>
                             <span className='text'>Group focus | 25 min ☕  </span>
@@ -33,7 +33,7 @@ export default function () {
                         <button className='sub-btn'>Join now <img src='/button.svg'></img></button>
                     </div>
 
-                    <div className="section pos-3">
+                    <div className="section">
 
                         <button className='main-btn' style={{ backgroundColor: '#5865f2', }}>
                             <div className='tag-box end-items'><img style={{ width: '18px', height: '18px' }} src='/icon/discord.svg'></img> On Discord</div>
@@ -42,7 +42,7 @@ export default function () {
 
                     </div>
 
-                    <div className="section" >
+                    <div className="section pos-3" >
                         <button className='main-btn' style={{ backgroundColor: '#2d8cff', }}>
                             <div className='tag-box end-items'><img style={{ width: '18px', height: '18px' }} src='/icon/zoom.svg'></img> On Zoom</div>
                             <span className='text'>Study  | With Camera 📖  </span>

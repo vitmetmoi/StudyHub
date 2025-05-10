@@ -26,6 +26,7 @@
     "react-dom": "latest",
     "react-lazyload": "^3.2.1",
     "sass": "^1.86.3",
+    "swiper": "^11.2.6",
     "tailwindcss": "3.4.17",
     "typescript": "5.7.3",
     "use-debounce": "^10.0.4",

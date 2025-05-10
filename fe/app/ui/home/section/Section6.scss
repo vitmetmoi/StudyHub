@@ -1,0 +1,83 @@
+.section6-container {
+    width          : 100%;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    margin-bottom  : 10%;
+    position       : relative;
+
+    .header {
+        font-size         : 33px;
+        font-weight       : 800;
+        animation-name    : animated-opacity;
+        animation-duration: 2s;
+        text-align        : center;
+    }
+
+    .title {
+        margin-top        : 0%;
+        font-size         : 19px;
+        text-align        : center;
+        line-height       : 25px;
+        animation-name    : animated-opacity;
+        animation-duration: 2s;
+    }
+
+
+    .swiper {
+        height    : 100%;
+        width     : 81%;
+        padding   : 50px;
+        margin-top: 5%;
+        height    : 280px;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: black;
+    }
+
+    .slide-introduce {
+
+        height          : 100%;
+        width           : 345px;
+        padding         : 10px;
+        box-shadow      : 0 0 9px #27110f26;
+        border-radius   : 20px;
+        background-color: white;
+
+        .slide-content {
+            background-color      : #f4eef5;
+            width                 : 92%;
+            height                : 92%;
+            border-radius         : 20px;
+            padding               : 13px;
+            display               : flex;
+            flex-direction        : column;
+            // align-items     : start;
+            // justify-content    : center;
+
+            .slide-header {
+                font-size  : 17px;
+                font-weight: 800;
+                margin-top : 2%;
+
+            }
+
+            .slide-title {
+                margin-top : 2%;
+                font-size  : 17px;
+                line-height: 25px;
+
+            }
+        }
+    }
+
+    .gif {
+        position   : absolute;
+        // left    : -50%;
+        top        : 35%;
+        width      : 100px;
+        height     : 100px;
+    }
+}

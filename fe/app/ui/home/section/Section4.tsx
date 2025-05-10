@@ -2,12 +2,11 @@
 
 import './Section4.scss';
 import _ from "lodash";
-import ScrollBannner from '@/app/lib/ScrollBanner';
 export default function Section4() {
 
     return (
         <>
-            <ScrollBannner />
+
             <div className='section4-container'>
 
                 <div className='header-group'>

@@ -1,8 +1,4 @@
 "use client"
-
-import Link from 'next/link';
-import Image from 'next/image';
-import Head from 'next/head';
 import HomeBanner from './ui/home/HomeBanner';
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react';
@@ -14,6 +10,8 @@ import Section2 from './ui/home/section/Section2';
 import Section3 from './ui/home/section/Section3';
 import Section4 from './ui/home/section/Section4';
 import Section5 from './ui/home/section/Section5';
+import ScrollBannner from '@/app/lib/ScrollBanner';
+import Section6 from './ui/home/section/Section6';
 export default function Page() {
 
 
@@ -22,7 +20,7 @@ export default function Page() {
       <HomeBanner></HomeBanner>
 
 
-      <div className='home-section-container' >
+      <div className='home-section-container section1' >
         <LazyLoad offset={-200} >
           <Section1></Section1>
         </LazyLoad>
@@ -40,13 +38,22 @@ export default function Page() {
         </LazyLoad>
       </div>
 
+      <ScrollBannner />
+
       <div className='home-section-container section4'>
         <LazyLoad offset={-300} >
           <Section4></Section4>
         </LazyLoad>
       </div>
 
-      <Section5></Section5>
+      <div className='home-section-container section4'>
+        <LazyLoad offset={-300} >
+          <Section5></Section5>
+        </LazyLoad>
+      </div>
+
+
+      <Section6 />
     </>
   );
 }

@@ -14,31 +14,37 @@
         justify-content: left;
 
         .title {
-            font-size  : 30px;
-            font-weight: 800;
+            font-size         : 30px;
+            font-weight       : 800;
+            animation-name    : animated-opacity;
+            animation-duration: 2s;
         }
 
         .des {
-            margin-top   : 5%;
-            font-size    : 18px;
-            padding-right: 23%;
-            text-align   : left;
-            line-height  : 25px;
+            margin-top        : 5%;
+            font-size         : 18px;
+            padding-right     : 23%;
+            text-align        : left;
+            line-height       : 25px;
+            animation-name    : animated-opacity;
+            animation-duration: 2s;
         }
 
         .btn {
-
-            width           : 85%;
-            height          : 50px;
-            border-radius   : 10px;
-            background-color: #ff6f61;
-            color           : white;
-            border          : none;
-            font-weight     : 900;
-            font-size       : 16px;
-            transition      : all 0.5s;
-            cursor          : pointer;
-            margin-top      : 10%;
+            opacity           : 1;
+            animation-name    : animated-opacity;
+            animation-duration: 2s;
+            width             : 85%;
+            height            : 50px;
+            border-radius     : 10px;
+            background-color  : #ff6f61;
+            color             : white;
+            border            : none;
+            font-weight       : 900;
+            font-size         : 16px;
+            transition        : all 0.5s;
+            cursor            : pointer;
+            margin-top        : 10%;
 
             &:hover {
                 background: none;
@@ -58,16 +64,21 @@
 
 
         .section {
-            width         : 455px;
-            height        : 60px;
-            margin-top    : 3%;
-            display       : flex;
-            flex-direction: row;
-            position      : relative;
+            width             : 455px;
+            height            : 60px;
+            margin-top        : 3%;
+            display           : flex;
+            flex-direction    : row;
+            position          : relative;
+            left              : 0%;
+            animation-name    : adj-left-position;
+            animation-duration: 2s;
+
 
             &.pos-3 {
                 display       : flex;
                 flex-direction: row;
+                animation-name: adj-left-position-2;
 
             }
 
@@ -149,5 +160,25 @@
         }
 
 
+    }
+}
+
+@keyframes adj-left-position {
+    0% {
+        left: 50%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes adj-left-position-2 {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 0%;
     }
 }
