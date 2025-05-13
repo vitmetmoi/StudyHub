@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import './Section6.scss'
 export default function Section6() {
     return (
@@ -14,13 +14,30 @@ export default function Section6() {
 
                 <img className='gif' src='/icon/heart-gif.gif'></img>
                 <Swiper
-                    slidesPerView={3}
+
                     spaceBetween={80}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     pagination={{
                         clickable: true,
+                        dynamicBullets: true,
                     }}
-                    modules={[Pagination]}
-                    className="mySwiper">
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 80,
+                        },
+                    }}
+                    modules={[Pagination, Autoplay]}
+                    className="mySwiper"
+                >
 
 
                     <SwiperSlide>

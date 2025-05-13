@@ -4,7 +4,6 @@
     flex-direction : column;
     align-items    : center;
     justify-content: center;
-    margin-bottom  : 10%;
     position       : relative;
 
     .header {
@@ -79,5 +78,13 @@
         top        : 35%;
         width      : 100px;
         height     : 100px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .section6-container .gif {
+        width : 70px;
+        height: 70px;
+        top   : 40%;
     }
 }

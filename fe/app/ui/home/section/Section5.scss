@@ -182,3 +182,29 @@
         left: 0%;
     }
 }
+
+@media only screen and (max-width:640px) {
+    .section5-container {
+        display       : flex;
+        flex-direction: column;
+        gap           : 50px;
+
+        .content-left {
+            width: 100%;
+        }
+
+        .content-right {
+            width: 100%;
+
+            .section {
+                width: 100%;
+
+                .main-btn {
+                    width: 80%;
+
+                }
+            }
+
+        }
+    }
+}

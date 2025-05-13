@@ -1,8 +1,49 @@
 .rolling-banner-container {
-    width         : 100%;
-    position      : absolute;
-    display       : flex;
-    flex-direction: row;
-    flex-wrap     : nowrap;
-    left          : 0px;
+    width   : 100%;
+    overflow: hidden;
+
+    .rolling-content {
+        height         : fit-content;
+        width          : fit-content;
+        position       : relative;
+        display        : flex;
+        flex-direction : row;
+        align-items    : center;
+        justify-content: center;
+        animation      : scrollRibbon 10s linear infinite;
+
+
+        &.reverse {
+            animation: scrollRibbon-reverse 10s linear infinite;
+        }
+
+        .item {
+            // width      : 170px;
+            margin     : 0 15px;
+            text-align : center;
+            font-size  : 22px;
+            font-weight: 700;
+            color      : rgb(235, 235, 235);
+        }
+    }
+}
+
+@keyframes scrollRibbon {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
+
+@keyframes scrollRibbon-reverse {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 0%;
+    }
 }
