@@ -14,8 +14,8 @@ export class UsersController {
   }
 
   @Get()
-  findAll() {
-    console.log('findall ')
+  findAll(@Param('id') id: string) {
+    console.log('findall ', id)
     return this.usersService.findAll();
   }
 
