@@ -19,12 +19,12 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get('/:id')
+  @Get(':id')
   async findOne(@Param('id') id: string, @Res() res) {
     try {
-      console.log('findone')
-      const data = this.usersService.findOne(id);
-
+      console.log('findone', id)
+      const data = await this.usersService.findOne(id);
+      console.log(data);
       return res.status(HttpStatus.OK).json({
         message: 'get users successfully!',
         data

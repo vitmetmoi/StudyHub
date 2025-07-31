@@ -16,6 +16,7 @@ import Section7 from './ui/home/section/Section7';
 import Section8 from './ui/home/section/Section8';
 import Section9 from './ui/home/section/Section9';
 import Footer from './ui/home/Footer';
+
 export default function Page() {
 
 
