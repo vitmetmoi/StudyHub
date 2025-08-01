@@ -16,7 +16,7 @@ import Section7 from './ui/home/section/Section7';
 import Section8 from './ui/home/section/Section8';
 import Section9 from './ui/home/section/Section9';
 import Footer from './ui/home/Footer';
-
+import { ToastContainer, toast } from 'react-toastify';
 export default function Page() {
 
 
@@ -84,6 +84,19 @@ export default function Page() {
       </div>
 
       <Footer></Footer>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
     </>
   );

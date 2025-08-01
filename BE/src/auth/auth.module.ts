@@ -3,9 +3,12 @@ import { LoginService } from './login/login.service';
 import { LogoutService } from './logout/logout.service';
 import { RegisterService } from './register/register.service';
 import { AuthController } from './auth.controller';
+import { UsersModule } from 'src/users/users.module';
+import { OAuthService } from './o-auth/o-auth.service';
 
 @Module({
-  providers: [LoginService, LogoutService, RegisterService],
+  imports: [UsersModule],
+  providers: [LoginService, LogoutService, RegisterService, OAuthService],
   controllers: [AuthController]
 })
-export class AuthModule {}
+export class AuthModule { }

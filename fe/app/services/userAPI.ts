@@ -1,10 +1,28 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+interface IHeader {
+    "X-RapidAPI-Key": string;
+    "X-RapidAPI-Host": string;
+}
+const Header: IHeader = {
+    "X-RapidAPI-Key": "6b365afe7cmsh5548dfde4720349p10e88bjsn3c9175ff3429",
+    "X-RapidAPI-Host": "car-data.p.rapidapi.com",
+};
 
-// Define a service using a base URL and expected endpoints
+
 export const userApi = createApi({
-    reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.NODE_ENV ? 'http://localhost:8080' : 'http://localhost:8080' }),
+    reducerPath: 'userApi',
+    baseQuery: fetchBaseQuery({
+        baseUrl: `http://localhost:8080`,
+
+        // prepareHeaders: (headers) => {
+        //     headers.set("X-RapidAPI-Key", Header["X-RapidAPI-Key"]);
+        //     headers.set("X-RapidAPI-Host", Header["X-RapidAPI-Host"]);
+
+        //     return headers;
+        // },
+    }),
+
 
 
     endpoints: (builder) => ({
@@ -14,9 +32,20 @@ export const userApi = createApi({
 
         register: builder.mutation({
             query(body) {
-                console.log('data', body)
+
                 return {
                     url: `users`,
+                    method: 'POST',
+                    body,
+                }
+            },
+        }),
+
+        authByGoogleOAuth: builder.mutation({
+            query(body) {
+                console.log('body', body)
+                return {
+                    url: `auth/google`,
                     method: 'POST',
                     body,
                 }
@@ -25,6 +54,4 @@ export const userApi = createApi({
     }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetUserByIdMutation, useRegisterMutation } = userApi
+export const { useGetUserByIdMutation, useRegisterMutation, useAuthByGoogleOAuthMutation } = userApi

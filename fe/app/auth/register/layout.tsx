@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 export const metadata: Metadata = {
     title: 'Register | Focusly',
     description: 'This is register page',
@@ -15,8 +15,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-
-        <section style={{ margin: 0, fontFamily: 'Source Sans Pro, sans-serif' }}>{children}</section>
-
+        <GoogleOAuthProvider clientId={"757426770864-i99i1pgtliemm8lovqna44g9dhqtg1bi.apps.googleusercontent.com"}>
+            <section style={{ margin: 0, fontFamily: 'Source Sans Pro, sans-serif' }}>{children}</section>
+        </GoogleOAuthProvider >
     );
 }

@@ -3,7 +3,7 @@
 import './HomeBanner.scss';
 import Navigation from './Navigation';
 import { styled } from "@mui/material/styles";
-
+import Link from 'next/link';
 export default function HomeBanner() {
 
     const BannerTitle = styled('div')(({ theme }) => ({
@@ -45,7 +45,7 @@ export default function HomeBanner() {
                         </h6>
                     </div>
                     <div className='section'>
-                        <button>Study Together now</button>
+                        <Link href="/auth/login"><button>Study Together now</button></Link>
                     </div>
                     <div className='section'>
                         <div className='banner-tag'>100% Free</div>

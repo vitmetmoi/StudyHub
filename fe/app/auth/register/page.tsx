@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { updateUserData } from "@/lib/features/userSlice";
 import Link from 'next/link'
-
+import { GoogleLogin } from '@react-oauth/google';
+import { useAuthByGoogleOAuthMutation } from "@/app/services/userAPI";
+import { toast } from "react-toastify";
 export default function page() {
 
     type formStateType = {
@@ -22,7 +24,7 @@ export default function page() {
     }
 
     const [registerService, { data, isLoading }] = useRegisterMutation()
-
+    const [authByGoogleService, { data: oauthData, isLoading: oauthIsLoading }] = useAuthByGoogleOAuthMutation()
     const [formState, setFormState] = useState<formStateType>(initState);
     const dispath = useAppDispatch();
     const userData = useAppSelector((state) => (state.users))
@@ -41,6 +43,13 @@ export default function page() {
         }
     }, [isLoading])
 
+    useEffect(() => {
+        if (oauthData) {
+
+            toast.info('register completed!')
+        }
+    }, [oauthIsLoading])
+
     const handleOnClickSubmit = async () => {
         if (formState.password === formState.confirmPassword) {
             console.log('true');
@@ -53,6 +62,20 @@ export default function page() {
 
     }
 
+    const handleRegisterByOAuth = async (credentialResponse: object) => {
+        // console.log('credential', credentialResponse)
+
+        if (credentialResponse) {
+            console.log('fired')
+            await authByGoogleService(credentialResponse);
+        }
+
+        else {
+            console.log('error')
+        }
+
+    }
+    console.log(process.env.GOOGLE_CLIENT_ID)
     return (
         <>
 
@@ -154,6 +177,18 @@ export default function page() {
                             >
                                 Sign in
                             </button>
+
+                            <p className="mt-10 text-center text-sm/6 text-gray-500">
+                                Or
+                            </p>
+
+                            <div className="flex justify-center align-center gap-3 mt-3">
+                                <GoogleLogin
+                                    onSuccess={handleRegisterByOAuth}
+                                    onError={() => console.log('Login Failed')}
+                                />
+                                {/* <button onClick={() => { }}><img className="size-[50] object-center" src='https://i.pinimg.com/1200x/60/41/99/604199df880fb029291ddd7c382e828b.jpg'></img></button> */}
+                            </div>
 
                             <p className="mt-10 text-center text-sm/6 text-gray-500">
                                 Already have an account?{' '}
