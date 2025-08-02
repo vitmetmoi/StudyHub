@@ -17,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Providers>
-      <html lang="en">
-        <body style={{ margin: 0, fontFamily: 'Source Sans Pro, sans-serif' }}>{children}</body>
-      </html>
-    </Providers>
+
+    <html lang="en">
+      <body style={{ margin: 0, fontFamily: 'Source Sans Pro, sans-serif' }}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+
 
 
   );

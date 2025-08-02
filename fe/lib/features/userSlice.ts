@@ -3,17 +3,17 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 // Define a type for the slice state
 interface UserState {
-    name: string,
-    age: number,
-    class: string
+    email: string,
+    userName: string,
+    role: number
 }
 
 // Define the initial state using that type
-const initialState: UserState = {
-    name: '',
-    age: 0,
-    class: 'EL1'
-}
+const initialState = {
+    email: '',
+    userName: '',
+    role: 0
+} satisfies UserState as UserState
 
 export const userSlice = createSlice({
     name: 'user',
@@ -21,15 +21,20 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         updateUserData: (state, action: PayloadAction<UserState>) => {
-            console.log('userData', action.payload)
-            state = action.payload;
+            console.log('userData slice', action.payload)
+            if (action.payload && action.payload.email) {
+                state.email = action.payload.email;
+                state.role = 0;
+                state.userName = action.payload.userName
+            }
+            console.log('state', state.email)
         },
 
         remove: (state) => {
-            state = initialState
+            state.email = '';
+            state.userName = '';
+            state.role = 0;
         }
-
-
     },
 })
 

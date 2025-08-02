@@ -37,7 +37,6 @@ export default function page() {
 
     useEffect(() => {
         if (data) {
-            console.log(data);
             dispath(updateUserData(data));
         }
     }, [isLoading])
@@ -46,8 +45,9 @@ export default function page() {
     useEffect(() => {
         console.log(oauthData);
         if (oauthData && oauthData.EC === 0) {
-            dispath(updateUserData(oauthData.DT.data));
-            router.push('/')
+
+            dispath(updateUserData(oauthData.DT.authRes.data));
+            // router.push('/')
             toast('register completed!')
 
         }

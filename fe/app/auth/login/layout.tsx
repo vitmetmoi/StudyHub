@@ -18,6 +18,5 @@ export default function RootLayout({
         <GoogleOAuthProvider clientId={"757426770864-i99i1pgtliemm8lovqna44g9dhqtg1bi.apps.googleusercontent.com"}>
             <section style={{ margin: 0, fontFamily: 'Source Sans Pro, sans-serif' }}>{children}</section>
         </GoogleOAuthProvider>
-
     );
 }
