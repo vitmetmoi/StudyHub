@@ -1,18 +1,38 @@
 'use client'
 import { useGetUserByIdMutation } from "@/app/services/userAPI";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { updateUserData } from "@/lib/features/userSlice";
 import Link from "next/link";
+import { GoogleLogin } from '@react-oauth/google';
+import { useAuthByGoogleOAuthMutation } from "@/app/services/userAPI";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 export default function page() {
+
+    type formStateType = {
+        email: string,
+        userName: string,
+        password: string,
+    }
+
+    const initState = {
+        email: '',
+        userName: '',
+        password: '',
+
+    }
 
     const [getUserService, { data, isLoading }] = useGetUserByIdMutation()
     const dispath = useAppDispatch();
+    const [authByGoogleService, { data: oauthData, isLoading: oauthIsLoading }] = useAuthByGoogleOAuthMutation()
+    const [formState, setFormState] = useState<formStateType>(initState);
     const userData = useAppSelector((state) => (state.users))
+    const router = useRouter();
 
     console.log('userData: ', userData)
     useEffect(() => {
-        handleGetUser();
+
     }, [])
 
     useEffect(() => {
@@ -23,8 +43,29 @@ export default function page() {
     }, [isLoading])
 
 
-    const handleGetUser = async () => {
-        await getUserService('68889f1b3247375c9f0524d5');
+    useEffect(() => {
+        console.log(oauthData);
+        if (oauthData && oauthData.EC === 0) {
+            dispath(updateUserData(oauthData.DT.data));
+            router.push('/')
+            toast('register completed!')
+
+        }
+    }, [oauthIsLoading])
+
+
+    const handleRegisterByOAuth = async (credentialResponse: object) => {
+        // console.log('credential', credentialResponse)
+
+        if (credentialResponse) {
+            console.log('fired')
+            await authByGoogleService(credentialResponse);
+        }
+
+        else {
+            console.log('error')
+        }
+
     }
 
     return (
@@ -101,6 +142,17 @@ export default function page() {
                             </button>
                         </div>
                     </form>
+
+                    <p className="mt-10 text-center text-sm/6 text-gray-500">
+                        Or
+                    </p>
+
+                    <div className="flex justify-center align-center gap-3 mt-3">
+                        <GoogleLogin
+                            onSuccess={handleRegisterByOAuth}
+                            onError={() => console.log('Login Failed')}
+                        />
+                    </div>
 
                     <p className="mt-10 text-center text-sm/6 text-gray-500">
                         Do not have an account?{' '}

@@ -14,7 +14,7 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: `http://localhost:8080`,
-
+        credentials: 'include',
         // prepareHeaders: (headers) => {
         //     headers.set("X-RapidAPI-Key", Header["X-RapidAPI-Key"]);
         //     headers.set("X-RapidAPI-Host", Header["X-RapidAPI-Host"]);

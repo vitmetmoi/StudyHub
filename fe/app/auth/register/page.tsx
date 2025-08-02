@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { GoogleLogin } from '@react-oauth/google';
 import { useAuthByGoogleOAuthMutation } from "@/app/services/userAPI";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 export default function page() {
 
     type formStateType = {
@@ -28,7 +29,7 @@ export default function page() {
     const [formState, setFormState] = useState<formStateType>(initState);
     const dispath = useAppDispatch();
     const userData = useAppSelector((state) => (state.users))
-
+    const router = useRouter();
 
 
     console.log('userData: ', userData)
@@ -44,9 +45,12 @@ export default function page() {
     }, [isLoading])
 
     useEffect(() => {
-        if (oauthData) {
+        console.log(oauthData);
+        if (oauthData && oauthData.EC === 0) {
+            dispath(updateUserData(oauthData.DT.data));
+            router.push('/')
+            toast('register completed!')
 
-            toast.info('register completed!')
         }
     }, [oauthIsLoading])
 
