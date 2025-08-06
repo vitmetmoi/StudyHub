@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "@/lib/hook"
-
+import DashBoardNavigation from "@/app/ui/dashboard/DashBoardNavigation";
 
 export default function page() {
     const dispatch = useAppDispatch();
@@ -13,6 +13,10 @@ export default function page() {
 
 
     return (
-        <div className="text-red-900">dashboard</div>
+        <div className="dashboard-container">
+            <div className="navigation">
+                <DashBoardNavigation />
+            </div>
+        </div>
     )
 }
